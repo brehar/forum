@@ -24,7 +24,7 @@ class CreateThreadsTest extends TestCase
 	{
 		$thread = make('App\Thread');
 
-		$this->signIn(create('App\User'));
+		$this->signIn();
 		$this->post('http://localhost:8000/threads', $thread->toArray());
 
 		$this->get('http://localhost:8000/threads/' . $thread->id)

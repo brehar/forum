@@ -26,7 +26,7 @@ class ParticipateInForumTest extends TestCase
 		$thread = create('App\Thread');
 		$reply = make('App\Reply');
 
-		$this->signIn($user = create('App\User'));
+		$this->signIn();
 		$this->post('http://localhost:8000/threads/' . $thread->id . '/replies', $reply->toArray());
 		$this->get('http://localhost:8000/threads/' . $thread->id)->assertSee($reply->body);
 	}
